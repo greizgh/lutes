@@ -27,3 +27,8 @@ What lutes gives you
 --------------------
 
 In its current state, lutes gives you a simplistic structure with basic elements you can inherit from.
+
+Lutes is an experiment but should be functionnal: please see how green is the badge below.
+
+.. image:: https://travis-ci.org/greizgh/lutes.svg?branch=master
+    :target: https://travis-ci.org/greizgh/lutes
