@@ -1,0 +1,9 @@
+*.egg-info
+*.py[co]
+__pycache__
+.ropeproject
+.cache
+/env
+.coverage
+.tox
+/doc/_build
