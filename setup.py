@@ -1,8 +1,9 @@
 from setuptools import setup
+from lutes import __version__
 
 setup(
     name='lutes',
-    version='1.0.0a1',
+    version=__version__,
     description='A lightweight component-entity-system engine',
     url='',
     author='Greizgh',

@@ -9,4 +9,6 @@ from .component import Component
 from .system import System
 from .manager import Manager
 
+__version__ = '1.0.0a1'
+
 __all__ = ['Component', 'Manager', 'System']
