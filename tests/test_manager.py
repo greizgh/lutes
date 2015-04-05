@@ -1,4 +1,5 @@
-from lutes import Manager, System, Component
+from lutes import Manager, System, Component, InvalidEntityError
+import pytest
 
 
 class DummySystem(System):
@@ -35,12 +36,23 @@ class TestManager:
         assert component2.entity == entity
         assert manager.get_component(entity, Component) == component2
 
+    def test_get_inexistant_component(self):
+        manager = Manager()
+        entity = manager.create_entity()
+        assert manager.get_component(entity, Component) is None
+
+    def test_get_inexistant_entity(self):
+        manager = Manager()
+        with pytest.raises(InvalidEntityError):
+            manager.get_component(12, Component)
+
     def test_event_dispatching(self):
         manager = Manager()
         data = ['test', True]
 
         def _callback(event_data):
             assert data == event_data
+
         manager.subscribe('test', _callback)
         manager.subscribe('test', _callback)
         manager.dispatch_event('test', data)
