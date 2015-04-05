@@ -5,3 +5,4 @@ Technical details
 
 .. toctree::
     api
+    errors

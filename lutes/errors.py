@@ -10,6 +10,9 @@ class InvalidEntityError(LutesError):
     """Exception raised when trying to process an invalid entity"""
 
     def __init__(self, entity):
+        """
+        :param entity: requested entity
+        """
         self.entity = entity
 
     def __str__(self):

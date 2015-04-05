@@ -14,7 +14,10 @@ class System:
         """Components the system needs to update entites"""
 
     def update(self, delta):
-        """Update entities"""
+        """Update entities
+
+        :param delta: time elapsed since last update
+        """
         pass
 
     def init(self):

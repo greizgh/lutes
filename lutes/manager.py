@@ -13,7 +13,10 @@ class Manager:
         self._subscribers = {}
 
     def create_entity(self):
-        """Create an entity in the world and return its identifier."""
+        """Create an entity in the world and return its identifier.
+
+        :rtype: entity
+        """
         index = self._index
         self._entities.append(index)
         self._index += 1
@@ -53,12 +56,15 @@ class Manager:
         self._subscribe_entity(entity)
 
     def has_component(self, entity, component):
+        """Check that given entity has component"""
         self._check_entity(entity)
         return entity in self._components[component]
 
     def get_component(self, entity, component):
         """Get an entity's component by its type
         Returns None if no component of given type was found
+
+        :rtype: component or None
         """
         self._check_entity(entity)
         try:
@@ -73,12 +79,21 @@ class Manager:
         self._systems.sort(key=lambda x: x.priority)
 
     def dispatch_event(self, event, data):
+        """Dispatch an event to all subscribers
+
+        :param event: event name as string
+        :param data: data that will be passed to subscribers
+        """
         if event in self._subscribers:
             for callback in self._subscribers[event]:
                 callback(data)
 
     def subscribe(self, event, callback):
-        """Subscribe a callback to an event"""
+        """Subscribe a callback to an event
+
+        :param event: event name as string
+        :param callback: callable
+        """
         if event in self._subscribers:
             self._subscribers[event].append(callback)
         else:
@@ -89,7 +104,10 @@ class Manager:
         self._systems.remove(system)
 
     def update(self, delta):
-        """Update every system"""
+        """Update every system
+
+        :param delta: time elpased since last update
+        """
         for system in self._systems:
             system.update(delta)
 
