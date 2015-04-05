@@ -31,7 +31,7 @@ class TestManager:
         assert component1.entity == entity
         assert manager.get_component(entity, Component) == component1
         manager.add_component(entity, component2)
-        assert not component1.entity
+        assert component1.entity is None
         assert component2.entity == entity
         assert manager.get_component(entity, Component) == component2
 

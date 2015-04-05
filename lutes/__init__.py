@@ -62,12 +62,17 @@ class Manager:
                 system.entities.remove(entity)
         for component_type in self._components:
             if entity in self._components[component_type]:
+                # Related components should be orphans
+                self._components[component_type][entity].entity = None
                 del self._components[component_type][entity]
 
     def add_component(self, entity, component):
         """Add a component to an entity"""
         component.entity = entity
         if type(component) in self._components:
+            if entity in self._components[type(component)]:
+                # Old component is now orphan
+                self._components[type(component)][entity].entity = None
             self._components[type(component)][entity] = component
         else:
             self._components[type(component)] = {entity: component}
