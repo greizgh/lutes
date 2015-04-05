@@ -36,3 +36,5 @@ Lutes is an experiment but should be functionnal: please see how green are the b
 .. image:: https://coveralls.io/repos/greizgh/lutes/badge.svg?branch=master
     :target: https://coveralls.io/r/greizgh/lutes?branch=master
 
+.. image:: https://readthedocs.org/projects/lutes/badge/?version=latest
+    :target: https://readthedocs.org/projects/lutes/?badge=latest
